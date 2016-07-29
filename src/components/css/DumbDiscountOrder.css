@@ -1,0 +1,206 @@
+:local(.container){
+  /*height: 300px;*/
+  /*width: 1200px;*/
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+:local(.border) {
+  border: 2px solid #768bd9;
+  border-radius: 15px;
+}
+
+:local(.content) {
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  display: flex;
+  flex: 1;
+  /*height: 300px;*/
+  background-color: white;
+  /*width: 150px;*/
+  width: 100%;
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  flex-direction: column;
+/*  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;*/
+
+}
+
+:local(.content .middle) {
+  padding: 15px;
+  /*composes: border;*/
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: white;
+  /*width: 150px;*/
+  /*width: 100%;*/
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  text-align: center;
+
+}
+
+:local(.content .middle div) {
+  padding: 15px;
+  /*composes: border;*/
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: white;
+  /*width: 150px;*/
+  /*width: 100%;*/
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  /*flex: 1;*/
+  text-align: center;
+
+}
+
+:local(.content .footer) {
+  background-color: #77b2d2;
+  justify-content: center;
+  height: 60px;
+}
+:local(.content .footer Button) {
+  flex:1;
+  margin: 5px;
+  height: 50px;
+}
+
+:local(.left) {
+  /*composes: border;*/
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: blue;
+  /*width: 150px;*/
+  /*width: 100%;*/
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  flex-direction: column;
+/*  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;*/
+  flex: 0.5;
+
+}
+
+/*:local(.left table){
+  valign:middle
+}*/
+:local(.middle Button) {
+/*  margin-left: 5px;
+  margin-right: 5px;*/
+}
+
+
+
+
+
+/*:local(.left table){
+  valign:middle
+}*/
+:local(.left Button) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+:local(.ordered){
+  flex:1;
+  cursor: default;
+}
+:local(.ordered table tr td){
+  text-align:center;vertical-align:middle;
+}
+
+:local(.right) {
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: red;
+  /*width: 150px;*/
+  /*width: 100%;*/
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  /*flex-direction: row;*/
+/*  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;*/
+  flex: 0.5;
+
+}
+
+
+
+
+
+:local(.name) {
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: white;
+  /*width: 150px;*/
+  width: 100%;
+  line-height: 50px;
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+
+  /*border: 1px solid #E3E3E3;*/
+  /*flex:1;*/
+}
+:local(.holdPeople) {
+  /*height: 75%;*/
+  /*flex:0.75;*/
+  /*cursor: pointer;*/
+/*  width: 300px;
+  padding-top: 18px;*/
+  background-color: white;
+  /*width: 150px;*/
+  /*width: 100%;*/
+  /*height: 110px;*/
+  /*padding: 5px;*/
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+
+  /*border: 1px solid #E3E3E3;*/
+  /*flex:1;*/
+}
+
+:local(.submit){
+  /*flex: 1;*/
+  /*width: 80%;*/
+  /*width: 100%;*/
+}
+

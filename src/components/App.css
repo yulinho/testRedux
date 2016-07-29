@@ -1,0 +1,95 @@
+html,body {
+	background-color: #fef7df;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.full{
+	width:100%;
+	height:100%;
+/*	display: flex;
+	flex-direction: column;*/
+}
+.full div{
+	display: flex;
+	/*flex-direction: column;*/
+}
+.flex{
+	display: flex;
+	/*flex-direction: column;*/
+	
+}
+div{
+/*	display: flex;
+	flex-direction: column;*/
+	/*overflow: hidden;*/
+	   /*row| row-reverse | column | column-reverse;*/
+	/*display: -webkit-box;*/
+  	/*display: -webkit-flex;*/
+/*	display: -moz-box;
+	display: box;*/
+	/*-webkit-box-orient: vertical;*/
+/*	-moz-box-orient: vertical;
+	box-orient: vertical;*/
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+::-webkit-scrollbar
+{
+	cursor: pointer;
+	width: 50px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb
+{
+	cursor: pointer;
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
+
+::-webkit-scrollbar-button {
+    background-size: 100%;
+    height: 50px;
+    width: 50px;
+    /*-webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);*/
+}
+
+/*::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon2.png);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon4.png);
+}
+*/
+::-webkit-scrollbar-button:vertical:increment {
+	cursor: pointer;
+    background-image: url(/statics/images/v_increment.png);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+	cursor: pointer;
+    background-image: url(/statics/images/v_decrement.png);
+    /*background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon.png);*/
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+::-webkit-input-placeholder-shown { /* Chrome/Opera/Safari */
+  color: pink;
+}

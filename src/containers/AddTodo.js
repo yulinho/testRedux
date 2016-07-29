@@ -11,7 +11,7 @@ let AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        dispatch(addTodo(input.value)) //用一个 Action 对象来描述我们的行为
         input.value = ''
       }}>
         <input ref={node => {

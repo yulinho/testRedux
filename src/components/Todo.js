@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import styles from './Todo.css';
 
 const Todo = ({ onClick, completed, text }) => (
   <li
@@ -6,6 +7,7 @@ const Todo = ({ onClick, completed, text }) => (
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
+    className={completed ? styles.blue : styles.red}
   >
     {text}
   </li>

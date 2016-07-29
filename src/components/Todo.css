@@ -1,0 +1,38 @@
+
+
+:local(.blue) {
+  cursor: pointer;
+  width: 300px;
+  padding-top: 18px;
+  background-color: blue;
+  border: 1px solid #E3E3E3;
+}
+
+:local(.blue h1) {
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+  font-family: Helvetica;
+}
+
+
+:local(.red) {
+  cursor: pointer;
+  width: 300px;
+  padding-top: 18px;
+  background-color: red;
+  border: 1px solid #E3E3E3;
+}
+
+:local(.red h1) {
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+  font-family: Helvetica;
+}
