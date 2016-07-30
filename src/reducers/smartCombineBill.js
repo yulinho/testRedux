@@ -1,52 +1,50 @@
-import SmartTakeMyOrder from '../containers/SmartTakeMyOrder'
+import SmartCombineBill from '../containers/SmartCombineBill'
 import {orders} from '../reducers'
 const initialState ={
-  visable:false,
-  size:'half',
+  visable:true,
+  size:'full',
   title:"title",
   desk:{},
   disabled: false,
-  buttonTitle: "点菜",
-  count: 1
+  buttonTitle: "CombineBill"
 }
-const smartTakeMyOrder = (state = initialState, action) => {
+const smartCombineBill = (state = initialState, action) => {
   // console.log(orders)
   switch (action.type) {
-    case 'SMARTTAKEMYORDER_OPEN':
+    case 'SMARTCOMBINEBILL_OPEN':
       // console.log(action)
 
       return Object.assign({}, state, {
        //  data:({desk:action.desk}),
-      	// smartTakeMyOrderClassName:action.desk.status_id === 1 ? "normal":"full",
+        // smartCombineBillClassName:action.desk.status_id === 1 ? "normal":"full",
         title:action.menu.name,
         menu:action.menu,
         visable: !state.visable,
         disabled: false,
-        buttonTitle: "点菜",
-        count: 1
+        buttonTitle: $name
       })
-    case 'SMARTTAKEMYORDER_OPENDESK':
+    case 'SMARTCOMBINEBILL_OPENDESK':
       return Object.assign({}, state, {
         visable: !state.visable
       })
-    case 'SMARTTAKEMYORDER_CLOSE':
+    case 'SMARTCOMBINEBILL_CLOSE':
       return Object.assign({}, state, {
         visable: !state.visable
       })
-    case 'SMARTTAKEMYORDER_DISABLED':
+    case 'SMARTCOMBINEBILL_DISABLED':
       return Object.assign({}, state, {
-        buttonTitle: '系统正在点餐，请稍等',
+        buttonTitle: '系统正在处理，请稍等',
         disabled: true
       })
-    case 'SMARTTAKEMYORDER_SETTINGCOUNT_PLUS':
+    case 'SMARTCOMBINEBILL_DOSOME':
+      console.log("do some")
       return Object.assign({}, state, {
-        count: state.count + action.value > 0 ? state.count + action.value : 1,
-        // disabled: true
+        buttonTitle: '系统正在处理，请稍等',
+        disabled: true
       })
-
     default:
       return state
   }
 }
 
-export default smartTakeMyOrder
+export default smartCombineBill

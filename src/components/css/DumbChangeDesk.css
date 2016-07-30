@@ -35,8 +35,17 @@
 }
 
 :local(.container .content .middle) {
+  flex-direction: column;
+  
   width: 100%;
   flex: 1;
+}
+
+
+:local(.container .content .middle .tips) {
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
 }
 
 
@@ -51,9 +60,18 @@
 
 :local(.container .content .middle .desks  ul){
   display: inline-block;
+  padding: 0px;
+  /*display: inline-block;*/
 }
 :local(.container .content .middle .desks  ul li){
+  padding: 0px;
+  margin:5px;
+  width: 22%;
   display: inline-block;
+}
+:local(.container .content .middle .desks  ul li Button){
+  width: 90%;
+  height: 50px;
 }
 /*:local(.desks div){*/
   /*display: inline-block;*/

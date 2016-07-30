@@ -9,11 +9,13 @@ import onOff from './onOff'
 import dialog from './dialog'
 import bills from './bills'
 import orders from './orders'
+import smartPanel from './smartPanel'
 import smartOpenDesk from './smartOpenDesk'
 import smartDeskDetail from './smartDeskDetail'
 import smartTakeMyOrder from './smartTakeMyOrder'
 import smartChangeDesk from './smartChangeDesk'
 import smartDiscountOrder from './smartDiscountOrder'
+import smartCombineBill from './smartCombineBill'
 
 
 const todoApp = combineReducers({
@@ -27,11 +29,13 @@ const todoApp = combineReducers({
   desks,
   bills,
   orders,
+  smartPanel,
   smartOpenDesk,
   smartDeskDetail,
   smartTakeMyOrder,
   smartChangeDesk,
   smartDiscountOrder,
+  smartCombineBill
 
 })
 

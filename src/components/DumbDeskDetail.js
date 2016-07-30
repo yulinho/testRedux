@@ -31,7 +31,7 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
   if (!desk || !bill) {
   return <div></div>
   }
-  // console.log(desk)
+  // console.log(orders)
   // if (active) {
   //   return <span>{children}</span>
   // }
@@ -73,7 +73,7 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
                     <td>开台时间</td>
                     <td>{desk.lastopen_at}</td>
                     <td>应收</td>
-                    <td>{bill.finalcost}</td>
+                    <td><span className="ft-orange">{bill.finalcost}</span> 元</td>
                   </tr>
                   <tr>
                     <td>原价</td>
@@ -81,13 +81,21 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
                     <td>优惠</td>
                     <td>{ Math.round((bill.rawcost - bill.finalcost)*100)/100}</td>
                     <td>综合折扣</td>
-                    <td>{  bill.finalcost > 0 ? Math.round((bill.finalcost/ bill.rawcost)*100)/10 : "10" }折</td>
+                    <td>{  bill.finalcost > 0 ? Math.round((bill.finalcost/ bill.rawcost)*100)/10 +"折" : "无折扣" }</td>
                   </tr>
                   <tr>
                     <td>开台</td>
                     <td>{bill.user_realname}</td>
                     <td>会员</td>
                     <td>{bill.member_user_name}</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>人数</td>
+                    <td>{bill.people}</td>
+                    <td>班制</td>
+                    <td>{bill.timebucket_name}</td>
                     <td>来自</td>
                     <td>{bill.comefrom}</td>
                   </tr>
@@ -117,15 +125,16 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
                       <td style={{width:"100%",whiteSpace: "pre-wrap"}}>
                         {order.menu_name}
                       </td>
-                      <td>{order.rawcost}</td>
-                      <td>{order.rawcost}</td>
+                      <td>{order.currentprice}</td>
                       <td>{order.count}</td>
+                      <td>{order.discount}</td>
                       <td>{order.finalcost}</td>
                       <td>{order.user_id}</td>
                       <td>                  
                         <Button onClick={e => {
                            e.preventDefault()
-                           confirm("are you sure to set the order [" + order.menu_name + "] discount?") && onSetorderdiscount(order)
+                           // confirm("are you sure to set the order [" + order.menu_name + "] discount?") && 
+                           onSetorderdiscount(order)
                            // alert("onHide") 
                          }}>打折</Button>
                         <Button onClick={e => {
@@ -199,7 +208,7 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
                            e.preventDefault()
                            onSmartTakeMyOrder(menu)
                            // alert("onHide")
-                         }}>{menu.name}</Button>
+                         }}>{menu.name} - {menu.price}元</Button>
                     )
                     })
                   }
@@ -225,28 +234,28 @@ const DumbDeskDetail = ({onSetorderdiscount , onClickCancelOrder , desk,bill,ord
             </div>   
           </div>
           <div className={styles.right_footer}>
-                      <Button bsStyle="warning"  {...opts} onClick={e => {
+                      <Button bsStyle="danger"  {...opts} onClick={e => {
                          e.preventDefault()
-                         // onClickCheckout()
-                         confirm("are you sure to checkout bill?") && onClickButton4()
+                         confirm("are you sure to cancel the bill?") && onClickButton4()
                          // alert("onHide")
-                       }}>{buttonTitle}</Button>
+                       }}>{buttonTitle4}</Button>
                       <Button bsStyle="info"  {...opts} onClick={e => { //转台
                          e.preventDefault()
                          // onClickButton2(desk.id,23)
                           onClickButton2(desk)
                          // alert("onHide")
                        }}>{buttonTitle2}</Button>
-                      <Button bsStyle="info"  {...opts} onClick={e => {
+                      <Button bsStyle="info"  {...opts} onClick={e => { //拼单
                          e.preventDefault()
                          onClickButton3()
                          // alert("onHide")
                        }}>{buttonTitle3}</Button>
-                      <Button bsStyle="danger"  {...opts} onClick={e => {
+                      <Button bsStyle="warning"  {...opts} onClick={e => {
                          e.preventDefault()
-                         confirm("are you sure to cancel the bill?") && onClickButton4()
+                         // onClickCheckout()
+                         confirm("are you sure to checkout bill?") && onClickButton4()
                          // alert("onHide")
-                       }}>{buttonTitle4}</Button>
+                       }}>{buttonTitle}</Button>
                        
 
           </div>

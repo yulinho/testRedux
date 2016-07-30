@@ -17,6 +17,12 @@
   /*flex:1;*/
 }
 :local(.desks  ul li){
+  display: inline-block;;
+  width: 22px;
+}
+
+
+:local(.desks  ul li Button){
   display: inline-block;
 }
 

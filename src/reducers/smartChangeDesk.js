@@ -75,6 +75,7 @@ const smartChangeDesk = (state = initialState, action) => {
       })
     case 'SMARTCHANGEDESK_OPEN':
       return Object.assign({}, state, {
+        title: action.desk.name,
         visable : true
       })
 

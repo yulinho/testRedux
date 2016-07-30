@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import styles from './css/DumbChangeDesk.css'
+import styles from './css/DumbCombineBill.css'
 import SmartDialog from '../containers/SmartDialog'
-import Desk from './Desk'
 
 import { Button ,ButtonGroup,DropdownButton ,MenuItem ,Modal,Tabs,Tab,FormGroup ,ControlLabel ,FormControl ,HelpBlock ,Glyphicon
 ,InputGroup ,
@@ -16,26 +15,22 @@ ButtonToolbar
 var buttonStyle = {
   backgroundColor:"white"
 };
-let DumbChangeDesk = ({dest_desk,onClickChangeDesk,desk,desks,onClickOpenDesk,size ,visable,title ,onClickClose ,disabled ,buttonTitle,bill ,source_desk , onClickDesk}) => {//active, children, onClick
+let DumbCombineBill = ({desks,desk,onSmartcombinebill_dosome,size ,visable,title ,onClickClose ,disabled ,buttonTitle ,value}) => {//active, children, onClick
   // console.log(desk);
   // if (active) {
   //   return <span>{children}</span>
   // }
   // console.log(desk)
-  // return (<div>test</div>)
-  // let holdpeople = desk.holdpeople;
-  // let isdisabled = disabled ? "disabled" : "";
-  // console.log(dest_desk)
-  let opts = {};
-  if (disabled) {
-      opts['disabled'] = 'disabled';
-  }
+
+
   return (
     <SmartDialog size={size} visable={visable} onClickClose={onClickClose} title={title}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.middle}>
-            <div className={styles.tips}>
+
+
+            <div className="tips">
               请选择要转到的台号，然后确认转台：
             </div>
             <div className={styles.desks}>
@@ -53,31 +48,27 @@ let DumbChangeDesk = ({dest_desk,onClickChangeDesk,desk,desks,onClickOpenDesk,si
               })}
               </ul>
             </div>
+
+
+            <br/>
+            <p className="tips"><span>下单后帐单总额:</span>元</p>
           </div>
           <div className={styles.footer}>
-            <div className={styles.inner}>
-                      <Button bsStyle="warning" {...opts} disabled={true} className={styles.submit}>{ source_desk ? source_desk.name : "source_desk_name"}</Button>
-                        ==>>
-                      <Button bsStyle="warning" {...opts} disabled={true} className={styles.submit}>{ dest_desk ? dest_desk.name : "目的台号"}</Button>
-                        =
-                      <Button bsStyle="warning" {...opts} disabled={!dest_desk} onClick={()=>{
-                          onClickChangeDesk();
-                        }} className={styles.submit}>{buttonTitle}</Button>
-              
-            </div>
+            <Button bsStyle="warning" disabled={disabled} onClick={()=>{
+                onSmartcombinebill_dosome(value);
+              }} className={styles.submit}>{buttonTitle}</Button>
           </div>
-
         </div>
       </div>
     </SmartDialog>
   )
 }
 
-DumbChangeDesk.propTypes = {
+DumbCombineBill.propTypes = {
   // active: PropTypes.bool.isRequired,
   // children: PropTypes.node.isRequired,
   // onClick: PropTypes.func.isRequired
 }
 
-DumbChangeDesk = connect()(DumbChangeDesk)
-export default DumbChangeDesk
+DumbCombineBill = connect()(DumbCombineBill)
+export default DumbCombineBill

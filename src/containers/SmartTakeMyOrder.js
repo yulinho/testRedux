@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setVisibilityFilter,closeSmartTakeMyOrder ,openDesk ,apiOpenDesk,smarttakemyorder_close,apiTakeMyOrder } from '../actions'
+import { smarttakemyorder_settingcount_plus,setVisibilityFilter,closeSmartTakeMyOrder ,openDesk ,apiOpenDesk,smarttakemyorder_close,apiTakeMyOrder } from '../actions'
 import DumbTakeMyOrder from '../components/DumbTakeMyOrder'
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,7 +10,10 @@ const mapStateToProps = (state, ownProps) => {
     desk: state.smartTakeMyOrder.desk,
     disabled: state.smartTakeMyOrder.disabled,
     buttonTitle: state.smartTakeMyOrder.buttonTitle ,
-    menu: state.smartTakeMyOrder.menu
+    menu: state.smartTakeMyOrder.menu,
+    count: state.smartTakeMyOrder.count,
+    bill: state.smartDeskDetail.desk ? state.bills.filter((bill)=> {return bill.id ==  state.smartDeskDetail.desk.bill_id} )[0] : null, 
+    //state.smartDeskDetail.desk.bill_id
   }
 }
 
@@ -29,6 +32,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onClickTakeMyOrder: (menu) =>{
       dispatch(apiTakeMyOrder(menu))
     },
+    onSmarttakemyorder_settingcount_plus: (value) =>{
+      dispatch(smarttakemyorder_settingcount_plus(value))
+    }
   }
 }
 

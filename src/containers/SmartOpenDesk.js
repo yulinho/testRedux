@@ -22,9 +22,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onClickClose: () =>{
       dispatch(closeSmartOpenDesk(true))
     },
-    onClickOpenDesk: ( desk_id )=>{
+    onClickOpenDesk: ( desk_id ,holdpeople)=>{
       // alert("onClickOpenDesk")
-      dispatch(apiOpenDesk(desk_id))
+      dispatch(apiOpenDesk(desk_id ,holdpeople))
     },
     onSmartopendesk_settingholdpeople: (value) => {
       dispatch(smartopendesk_settingholdpeople(value))

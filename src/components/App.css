@@ -35,7 +35,7 @@ div{
 	box-orient: vertical;*/
 }
 
-::-webkit-scrollbar-track
+/*::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
@@ -65,17 +65,9 @@ div{
     background-size: 100%;
     height: 50px;
     width: 50px;
-    /*-webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);*/
 }
 
-/*::-webkit-scrollbar-button:horizontal:increment {
-    background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon2.png);
-}
 
-::-webkit-scrollbar-button:horizontal:decrement {
-    background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon4.png);
-}
-*/
 ::-webkit-scrollbar-button:vertical:increment {
 	cursor: pointer;
     background-image: url(/statics/images/v_increment.png);
@@ -84,12 +76,49 @@ div{
 ::-webkit-scrollbar-button:vertical:decrement {
 	cursor: pointer;
     background-image: url(/statics/images/v_decrement.png);
-    /*background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon.png);*/
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder { 
   color: pink;
 }
-::-webkit-input-placeholder-shown { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder-shown { 
   color: pink;
+}*/
+
+:global(.ft-orange) { color: #f37800; }
+
+:global(p.tips) {
+	display: flex;
+	/*align-self: center;*/
+	margin-top: 5px;
+	justify-content: center;
+	align-items: center;
+	/*line-height: 30px; */
+	/*width: 100%;*/
+	font-size: 13px;
+	height: 30px;
+	line-height: 15px;
+	border: 1px dashed #f37800;
+}
+:global(div.tips) {
+	display: flex;
+	/*align-self: center;*/
+	margin-top: 5px;
+	justify-content: center;
+	align-items: center;
+	/*line-height: 30px; */
+	/*width: 100%;*/
+	font-size: 13px;
+	height: 30px;
+	line-height: 15px;
+	/*border: 1px dashed gray;*/
+}
+
+table {
+	width: 100%;
+}
+
+table input {
+	text-align: center;
+	border: 0px;
 }

@@ -33,31 +33,41 @@ let DumbOpenDesk = ({ onSmartopendesk_settingholdpeople_plus ,onSmartopendesk_se
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.middle}>
-            <span>人数:</span>
-            <ButtonToolbar>
-              <ButtonGroup bsSize="large">
-                <Button onClick={()=>{
-                  onSmartopendesk_settingholdpeople_plus(-1);
-                }} >-</Button>
-                <Button>
+            <table>
+              <tr>
+                <td>
+                  <span>人数:</span>
+                </td>
+                <td>
+                  <ButtonToolbar>
+                    <ButtonGroup bsSize="large">
+                      <Button onClick={()=>{
+                        onSmartopendesk_settingholdpeople_plus(-1);
+                      }} >-</Button>
+                      <Button>
 
-                           <input placeholder="请输入就餐人数" value={holdpeople} onChange={(e)=>{
-                            // console.log(e)
-                            let value = e.target.value;
-                            onSmartopendesk_settingholdpeople(value);
-                           // onSmartdeskdetail_filterchange(value);
+                                 <input placeholder="请输入就餐人数" value={holdpeople} onChange={(e)=>{
+                                  // console.log(e)
+                                  let value = e.target.value;
+                                  onSmartopendesk_settingholdpeople(value);
+                                 // onSmartdeskdetail_filterchange(value);
 
-                           }}/>
-                </Button>
-                <Button onClick={()=>{
-                  onSmartopendesk_settingholdpeople_plus(1);
-                }} >+</Button>
-              </ButtonGroup>
-            </ButtonToolbar>
+                                 }}/>
+                      </Button>
+                      <Button onClick={()=>{
+                        onSmartopendesk_settingholdpeople_plus(1);
+                      }} >+</Button>
+                    </ButtonGroup>
+                  </ButtonToolbar>
+                </td>
+              </tr>
+            </table>
+            
+
           </div>
           <div className={styles.footer}>
           <Button bsStyle="warning" {...opts} onClick={()=>{
-              onClickOpenDesk(desk.id);
+              onClickOpenDesk(desk.id,holdpeople);
             }} className={styles.submit}>{buttonTitle}</Button>
           </div>
         </div>

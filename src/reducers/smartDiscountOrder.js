@@ -1,14 +1,16 @@
 import SmartDiscountOrder from '../containers/SmartDiscountOrder'
 import {orders} from '../reducers'
+import {apiFetchSetorderdiscount} from '../actions'
 const initialState ={
-  visable:true,
+  visable:false,
   size:'half',
   title:"title",
   desk:{},
   disabled: false,
-  buttonTitle: "DiscountOrder"
+  buttonTitle: "DiscountOrder",
+  discount: 1
 }
-const smartDiscountOrder = (state = initialState, action) => {
+const smartDiscountOrder = (state = initialState, action ,t) => {
   // console.log(orders)
   switch (action.type) {
     case 'SMARTDISCOUNTORDER_OPEN':
@@ -17,11 +19,14 @@ const smartDiscountOrder = (state = initialState, action) => {
       return Object.assign({}, state, {
        //  data:({desk:action.desk}),
         // smartDiscountOrderClassName:action.desk.status_id === 1 ? "normal":"full",
-        title:action.menu.name,
-        menu:action.menu,
+        title:action.order.menu_name ,
+        // menu:action.menu,
         visable: !state.visable,
         disabled: false,
-        buttonTitle: $name
+        order: action.order,
+        discount: action.discount,
+        // discount: action.order.discount
+        // buttonTitle: $name
       })
     case 'SMARTDISCOUNTORDER_OPENDESK':
       return Object.assign({}, state, {
@@ -38,9 +43,15 @@ const smartDiscountOrder = (state = initialState, action) => {
       })
     case 'SMARTDISCOUNTORDER_DOSOME':
       console.log("do some")
+      // action.dispatch(apiFetchSetorderdiscount(0.8))
       return Object.assign({}, state, {
         buttonTitle: '系统正在处理，请稍等',
         disabled: true
+      })
+    case 'SMARTDISCOUNTORDER_SETDISCOUNT':
+      return Object.assign({}, state, {
+        discount: action.discount,
+        disabled: isNaN(action.discount) || action.discount==""
       })
     default:
       return state

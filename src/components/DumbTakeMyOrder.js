@@ -15,7 +15,7 @@ ButtonToolbar
 var buttonStyle = {
   backgroundColor:"white"
 };
-let DumbTakeMyOrder = ({desk,onClickTakeMyOrder,size ,visable,title ,onClickClose ,disabled ,buttonTitle ,menu}) => {//active, children, onClick
+let DumbTakeMyOrder = ({bill,count,onSmarttakemyorder_settingcount_plus,desk,onClickTakeMyOrder,size ,visable,title ,onClickClose ,disabled ,buttonTitle ,menu}) => {//active, children, onClick
   // console.log(desk);
   // if (active) {
   //   return <span>{children}</span>
@@ -28,19 +28,51 @@ let DumbTakeMyOrder = ({desk,onClickTakeMyOrder,size ,visable,title ,onClickClos
   if (disabled) {
       opts['disabled'] = 'disabled';
   }
+ let price = menu ? menu.price : 0;
+ let rawcost = bill ? bill.rawcost : 0;
   return (
     <SmartDialog size={size} visable={visable} onClickClose={onClickClose} title={title}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.middle}>
-            <span>数量:</span>
-            <ButtonToolbar>
-              <ButtonGroup bsSize="large">
-                <Button>-</Button>
-                <Button><input defaultValue={1}/></Button>
-                <Button>+</Button>
-              </ButtonGroup>
-            </ButtonToolbar>
+            <table>
+              <tr>
+                <td>
+                  <span>单价:</span>
+                </td>
+                <td>
+                   元
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>数量:</span>
+                </td>
+                <td>
+                  <ButtonToolbar>
+                    <ButtonGroup bsSize="large">
+                      <Button onClick={()=>{
+                        onSmarttakemyorder_settingcount_plus(-1);
+                      }} >-</Button>
+                      <Button><input style={{textAlign:"center"}} value={count}/></Button>
+                      <Button onClick={()=>{
+                        onSmarttakemyorder_settingcount_plus(1);
+                      }} >+</Button>
+                    </ButtonGroup>
+                  </ButtonToolbar>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>金额:</span>
+                </td>
+                <td>
+                  {price * count} 元
+                </td>
+              </tr>
+            </table>
+            <br/>
+            <p className="tips"><span>下单后帐单总额:</span>{price * count + rawcost }元 (原价)</p>
           </div>
           <div className={styles.footer}>
             <Button bsStyle="warning" {...opts} onClick={()=>{

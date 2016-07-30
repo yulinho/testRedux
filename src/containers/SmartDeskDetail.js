@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import { apiFetchSetorderdiscount, apiFetchCancelorder , apiFetchCancelbill ,smartchangedesk_open ,closeSmartDeskDetail ,apiFetchCheckout ,apiFetchChangeDesk ,smartdeskdetail_catepagechange,smartdeskdetail_menupagechange,smartdeskdetail_filterchange,smartdeskdetail_cateidchange,smartdeskdetail_menupagereset ,smarttakemyorder_open} from '../actions'
+import {smartdiscountorder_open} from '../actions/DiscountOrder'
 import DumbDeskDetail from '../components/DumbDeskDetail'
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state)
+  // console.log(state.smartDeskDetail.bill)
   return {
     visable: state.smartDeskDetail.visable,
     size: state.smartDeskDetail.size,
@@ -50,12 +51,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onSmartTakeMyOrder: (menu) =>{
       dispatch(smarttakemyorder_open(menu))
     },
-    onClickButton2: (sourcedesk_id,destdesk_id) =>{ //转台
+    onClickButton2: (desk) =>{ //转台 //sourcedesk_id,destdesk_id
       // dispatch(apiFetchChangeDesk(sourcedesk_id ,destdesk_id))
-      dispatch(smartchangedesk_open())
+      dispatch(smartchangedesk_open(desk))
     },
     onClickButton3: () =>{ //拼单 
-      dispatch(apiFetchCheckout(true))
+      console.log("拼单")
+      // dispatch(apiFetchCheckout(true))
     },
     onClickButton4: () =>{ //撤单
       // dispatch(apiFetchCheckout(true))
@@ -66,7 +68,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       // console.log(order)
     },
     onSetorderdiscount: (order) =>{//打折
-      dispatch(apiFetchSetorderdiscount(order))
+      dispatch(smartdiscountorder_open(order))
+
+      // dispatch(apiFetchSetorderdiscount(order))
       // console.log(order)
     }
 

@@ -85,6 +85,14 @@ export const smartopendesk_settingholdpeople_plus = (value) => {
     // desk
   }
 }
+export const smarttakemyorder_settingcount_plus = (value) => {
+  // console.log(desk)
+  return {
+    type: 'SMARTTAKEMYORDER_SETTINGCOUNT_PLUS',
+    value
+    // desk
+  }
+}
 
 
 
@@ -191,7 +199,7 @@ export const smartchangedesk_open  = (desk) => {
   // alert(value)
   return {
     type: 'SMARTCHANGEDESK_OPEN',
-    // desk
+    desk
   }
 }
 export const smartchangedesk_close  = (desk) => {
@@ -345,7 +353,7 @@ export const apiFetchOrders = (cb) => {
 };
 
 
-export const apiOpenDesk = (desk_id) => {
+export const apiOpenDesk = (desk_id ,holdpeople) => {
   return function (dispatch,getState) {
     // let desks = store.getState().desks;
     // desks = desks.filter(t=> t.status_id === 2)//(t => t.completed)
@@ -362,7 +370,7 @@ export const apiOpenDesk = (desk_id) => {
       type: 'SMARTOPENDESK_DISABLED',
       // json: responseJson,
     })
-    let url = "http://localhost/index.php?r=idc/default/opendesk&desk_id="+desk_id;
+    let url = "http://localhost/index.php?r=idc/default/opendesk&desk_id="+desk_id + "&holdpeople=" + holdpeople;
     // console.log(url);
     return fetch(url)
     .then((response) => response.json())
@@ -491,6 +499,7 @@ export const apiTakeMyOrder = (menu) => {
     })
 
     let desk_id = getState().smartDeskDetail.desk.id;
+    let count = getState().smartTakeMyOrder.count;
     let menu_id = menu.id;
 
     // let desks = getState().desks;
@@ -502,7 +511,7 @@ export const apiTakeMyOrder = (menu) => {
       // query  += desk.bill_id + "|";
       
     // }
-    let url = "http://localhost/index.php?r=idc/default/takemyorder&desk_id="+desk_id + "&menu_id="+menu_id;
+    let url = "http://localhost/index.php?r=idc/default/takemyorder&desk_id="+desk_id + "&menu_id="+menu_id + "&count=" +count;
     return fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {
